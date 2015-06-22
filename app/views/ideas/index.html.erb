@@ -1,0 +1,49 @@
+<h1>AirBnb ideas</h1>
+<hr>
+
+<table>
+<% @ideas.each do |idea| %>
+
+  <tr>
+    <td><h2><%= idea.title %></h2></td>
+  </tr>
+  <tr>
+    <td><%= idea.body %></td>
+  </tr>
+</table>
+
+        <% join = idea.join_for(current_user) %>
+
+        <% if idea.joined_by?(current_user) %>
+        <%= link_to "Joined", idea_join_path(idea, join),
+                                                          method: :delete %>
+        <% else %>
+        <br>
+
+    <%= link_to "Join", idea_joins_path(idea),
+                                                        method: :post %>
+        <% end %>
+
+        <div class="infos">
+        Joined: <%= idea.joins.count %> times |
+        </div>
+
+<h4> Comments </h4>
+        <% idea.comment.each do |cmt| %>
+      <ul>
+          <li><%= cmt.body %></li>
+            <%# link_to "Edit", edit_idea_comment_path(idea, cmt) %>
+            <%# link_to "Delete", idea_comment_path(idea, cmt), method: :delete,
+            data: {confirm: "Are you sure you want delete the comment?"} %>
+      </ul>
+        <% end %>
+
+    <%= form_for [idea, @comment] do |idea| %>
+    <div class="comment_form">
+        <%= idea.text_area :body  %>
+    </div>
+    <%= idea.submit %>
+    </form>
+      <hr>
+      <% end %>
+  <% end %>
