@@ -29,7 +29,10 @@ class IdeasController < ApplicationController
 
     @idea = Idea.find params[:id]
     @join = @idea.join_for(current_user)
+    @like = @idea.like_for(current_user)
   end
+
+  private
 
   def find_idea
     @idea = Idea.find params[:id]

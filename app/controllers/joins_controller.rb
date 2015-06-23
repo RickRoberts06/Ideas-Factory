@@ -25,9 +25,6 @@ class JoinsController < ApplicationController
       redirect_to root_path, notice: "Un-Joined"
   end
 
-  def show
-
-  end
 
   private
 
