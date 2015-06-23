@@ -13,15 +13,15 @@
 </table>
           <br>
 
-  <%# Will have to fix that  %>
-      <%# if @user != current_user %>
+
+
           <% join = idea.join_for(current_user) %>
           <% if idea.joined_by?(current_user) %>
             <%= link_to "Joined", idea_join_path(idea, join), method: :delete %> |
           <% else %>
             <%= link_to "Join", idea_joins_path(idea), method: :post %> |
           <% end %>
-      <%# end %>
+    
 
         <% like = idea.like_for(current_user) %>
       <% if idea.liked_by?(current_user) %>
@@ -32,9 +32,9 @@
 
 
         <div class="infos">
-        <%= link_to "Joined: #{idea.joins.count} times", idea_joins_path(idea) %> |
-      
-        <%= link_to "Liked: #{idea.likes.count} times", idea_likes_path(idea) %>
+        <%= link_to "Joined: #{idea.joins.count} ", idea_joins_path(idea) %> |
+
+      <i></i>  <%= link_to "<i class='glyphicon glyphicon-thumbs-up blue'></i> #{idea.likes.count}".html_safe, idea_likes_path(idea) %>
         </div>
 
 <h4> Comments </h4>

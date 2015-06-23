@@ -24,4 +24,8 @@ class Idea < ActiveRecord::Base
    likes.find_by_user_id(user)
  end
 
+ # def idea_from?(user)
+ #   ideas.where(user: user).present?
+ # end
+
 end

@@ -35,4 +35,5 @@ class User < ActiveRecord::Base
   #   likes.find_by_user_id(user)
   # end
 
+
 end
