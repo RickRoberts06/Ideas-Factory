@@ -3,6 +3,7 @@ class JoinsController < ApplicationController
   # before_action :find_idea
 
   def index
+    @idea = Idea.find params[:idea_id]
     @users = @idea.joining_users
   end
 
@@ -25,7 +26,7 @@ class JoinsController < ApplicationController
   end
 
   def show
-    @idea = Idea.find params[:idea_id]
+
   end
 
   private
