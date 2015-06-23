@@ -24,6 +24,10 @@ class JoinsController < ApplicationController
       redirect_to root_path, notice: "Un-Joined"
   end
 
+  def show
+    @idea = Idea.find params[:idea_id]
+  end
+
   private
 
   # def find_idea

@@ -25,7 +25,7 @@
         <% end %>
 
         <div class="infos">
-        Joined: <%= idea.joins.count %> times |
+        <%= link_to "Joined: #{idea.joins.count} times", idea_join_path(idea, join) %>|
         </div>
 
 <h4> Comments </h4>

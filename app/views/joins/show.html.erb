@@ -1,0 +1,8 @@
+<h1>People that joined the idea:</h1>
+
+<% @idea.joining_users.each do |user| %>
+
+<ul>
+  <li><%= user.full_name.capitalize %></li>
+</ul>
+<% end %>
