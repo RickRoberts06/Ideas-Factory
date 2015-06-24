@@ -8,22 +8,32 @@
 </head>
 <body>
   <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="header">
+        <div class="row">
+          <div class="col-xs-6 left">
+            <%= link_to "Home", root_path %> |
+            <%= link_to "New idea", new_idea_path %>
+          </div>
 
-
-  <%= link_to "Home", root_path %> |
-  <%= link_to "New idea", new_idea_path %> |
-  <% if user_signed_in? %> |
-  <i class="glyphicon glyphicon-user"></i>
-    Hello <%= current_user.full_name %>,
-    <%= link_to "Logout", sessions_path, method: :delete,
-             data: {confirm: "are you sure you want to log out?"}%> |
-  <% else %>
-    <%= link_to "Login", new_session_path %> |
-    <%= link_to "Sign Up", new_user_path %> |
-  <% end %>
+          <div class="col-xs-6 right">
+            <% if user_signed_in? %>
+            <i class="glyphicon glyphicon-user"></i>
+            Hello <%= current_user.full_name %>,
+            <%= link_to "Logout", sessions_path, method: :delete,
+                     data: {confirm: "are you sure you want to log out?"}%> 
+            <% else %>
+            <%= link_to "Login", new_session_path %> |
+            <%= link_to "Sign Up", new_user_path %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
   <hr>
 
 <%= yield %>
+
   </div>
 </body>
 </html>

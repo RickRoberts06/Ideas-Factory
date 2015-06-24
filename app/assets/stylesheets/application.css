@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+.comment {
+}
+
+.red {
+
+
+}
+
+.like_n_join {
+    /*border: solid;
+    style: 2px;
+    color: #4747D1;*/
+}
+
+.header {
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.left {
+  padding-left: 30px;
+}
+
+.right {
+  text-align: right;
+  padding-right: 30px;
+}

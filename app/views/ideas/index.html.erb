@@ -1,19 +1,22 @@
-<h1>AirBnb ideas</h1>
+<h1>Ideas Factory</h1>
 <hr>
+    <div class="col-xs-12">
 
-<table>
-<% @ideas.each do |idea| %>
+          <% @ideas.each do |idea| %>
+            <div class="col-xs-6 pink">
+          <table>
+            <tr>
+            <td><h2><%= idea.title %></h2></td>
+            </tr>
 
-  <tr>
-    <td><h2><%= idea.title %></h2></td>
-  </tr>
-  <tr>
-    <td><%= idea.body %></td>
-  </tr>
-</table>
-          <br>
+            <tr>
+            <td><%= idea.body %></td>
+            </tr>
+            </table>
 
 
+        <div class="like_n_join col-xs-6">
+          <div class="row">
 
           <% join = idea.join_for(current_user) %>
           <% if idea.joined_by?(current_user) %>
@@ -21,38 +24,48 @@
           <% else %>
             <%= link_to "Join", idea_joins_path(idea), method: :post %> |
           <% end %>
-    
 
-        <% like = idea.like_for(current_user) %>
-      <% if idea.liked_by?(current_user) %>
-        <%= link_to "Liked", idea_like_path(idea, like), method: :delete %>
-      <% else %>
-        <%= link_to "Like", idea_likes_path(idea), method: :post %>
-      <% end %>
+          <% like = idea.like_for(current_user) %>
+          <% if idea.liked_by?(current_user) %>
+            <%= link_to "Liked", idea_like_path(idea, like), method: :delete %>
+          <% else %>
+            <%= link_to "Like", idea_likes_path(idea), method: :post %>
+          <% end %>
 
-
-        <div class="infos">
-        <%= link_to "Joined: #{idea.joins.count} ", idea_joins_path(idea) %> |
-
-      <i></i>  <%= link_to "<i class='glyphicon glyphicon-thumbs-up blue'></i> #{idea.likes.count}".html_safe, idea_likes_path(idea) %>
+          <div class="infos">
+            <%= link_to "Joined: #{idea.joins.count} ", idea_joins_path(idea) %> |
+            <i></i>  <%= link_to "<i class='glyphicon glyphicon-thumbs-up blue'></i>
+            #{idea.likes.count}".html_safe, idea_likes_path(idea) %>
+          </div>
         </div>
+      </div>
+    </div>
 
-<h4> Comments </h4>
-        <% idea.comment.each do |cmt| %>
+    <div class="comment">
+      <div class="row">
+        <div class="col-xs-6 red">
+
+
+    <h4> Comments </h4>
+    <% idea.comment.each do |cmt| %>
       <ul>
-          <li><%= cmt.body %></li>
-            <%# link_to "Edit", edit_idea_comment_path(idea, cmt) %>
-            <%# link_to "Delete", idea_comment_path(idea, cmt), method: :delete,
-            data: {confirm: "Are you sure you want delete the comment?"} %>
+        <li><%= cmt.body %></li>
+        <%# link_to "Edit", edit_idea_comment_path(idea, cmt) %>
+        <%# link_to "Delete", idea_comment_path(idea, cmt), method: :delete,
+        data: {confirm: "Are you sure you want delete the comment?"} %>
       </ul>
-        <% end %>
+    <% end %>
 
     <%= form_for [idea, @comment] do |idea| %>
-    <div class="comment_form">
+      <div class="comment_form">
         <%= idea.text_area :body  %>
+      </div>
+      <%= idea.submit %>
+    <% end %>
+
+        </div>
+      </div>
     </div>
-    <%= idea.submit %>
-    </form>
-      <hr>
-      <% end %>
+    <hr>
   <% end %>
+  </div>
