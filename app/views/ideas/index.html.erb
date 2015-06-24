@@ -1,9 +1,25 @@
-<h1>Ideas Factory</h1>
-<hr>
+<div class="container">
+  <div class="title col-xs-12">
+    <div class="jumbotron">
+      <h1>AirBnb Ideas!</h1>
+      <p>Donec id elit non mi porta gravida at eget metus. Cum sociis natoque
+        penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum
+        sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus. Nulla vitae elit libero, a pharetra augue. Donec sed odio
+        dui. Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta
+        sem malesuada magna mollis euismod.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    </div>
+  </div>
+</div>
+  <hr>
+
+<div class="container">
+
     <div class="col-xs-12">
 
           <% @ideas.each do |idea| %>
-            <div class="col-xs-6 pink">
+            <div class="col-md-6 col-xs-12 pink">
           <table>
             <tr>
             <td><h2><%= idea.title %></h2></td>
@@ -15,7 +31,7 @@
             </table>
 
 
-        <div class="like_n_join col-xs-6">
+        <div class="like_n_join col-md-6 col-xs-12">
           <div class="row">
 
           <% join = idea.join_for(current_user) %>
@@ -43,7 +59,7 @@
 
     <div class="comment">
       <div class="row">
-        <div class="col-xs-6 red">
+        <div class="col-md-6 col-xs-12 red">
 
 
     <h4> Comments </h4>
@@ -69,3 +85,4 @@
     <hr>
   <% end %>
   </div>
+</div>
